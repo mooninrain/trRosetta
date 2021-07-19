@@ -113,14 +113,14 @@ with tf.Graph().as_default():
     logits_omega = conv2d(layers2d[-1], 25, 1, padding='SAME')
     prob_omega = tf.nn.softmax(logits_omega)
 
-    saver = tf.train.Saver()
+    saver = tf.compat.v1.train.Saver()
 
     #for ckpt in ['model.xaa', 'model.xab', 'model.xac', 'model.xad', 'model.xae']:
     for filename in os.listdir(MDIR):
         if not filename.endswith(".index"):
             continue
         ckpt = MDIR+"/"+os.path.splitext(filename)[0]
-        with tf.Session(config=config) as sess:
+        with tf.compat.v1.Session(config=config) as sess:
             tf.print("predicting starts...")
             saver.restore(sess, ckpt)
             pd, pt, pp, po = sess.run([prob_dist, prob_theta, prob_phi, prob_omega],
