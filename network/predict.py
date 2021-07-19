@@ -3,6 +3,7 @@ import json
 import tensorflow as tf
 from utils import *
 from arguments import *
+os.environ["CUDA_VISIBLE_DEVICES"] = "5"
 
 # for testing
 import time
