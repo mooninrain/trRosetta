@@ -4,6 +4,9 @@ import tensorflow as tf
 from utils import *
 from arguments import *
 
+# for testing
+import time
+
 args = get_args()
 
 msa_file     = args.ALN
@@ -21,7 +24,7 @@ a3m = parse_a3m(msa_file)
 
 contacts = {'pd':[], 'po':[], 'pt':[], 'pp':[]}
 
-
+print("predicting starts...")
 
 #
 # network
@@ -127,11 +130,15 @@ with tf.Graph().as_default():
             print(ckpt, '- done')
 
 # average over all network params
+print("average over all network params...")
+
 contacts['pd'] = np.mean(contacts['pd'], axis=0)
 contacts['pt'] = np.mean(contacts['pt'], axis=0)
 contacts['po'] = np.mean(contacts['po'], axis=0)
 contacts['pp'] = np.mean(contacts['pp'], axis=0)
 
 # save distograms & anglegrams
+print("saving...")
+
 np.savez_compressed(npz_file, dist=contacts['pd'], omega=contacts['po'], theta=contacts['pt'], phi=contacts['pp'])
 
