@@ -24,7 +24,7 @@ a3m = parse_a3m(msa_file)
 
 contacts = {'pd':[], 'po':[], 'pt':[], 'pp':[]}
 
-print("predicting starts...")
+print("network starts...")
 
 #
 # network
@@ -120,6 +120,7 @@ with tf.Graph().as_default():
             continue
         ckpt = MDIR+"/"+os.path.splitext(filename)[0]
         with tf.Session(config=config) as sess:
+            tf.print("predicting starts...")
             saver.restore(sess, ckpt)
             pd, pt, pp, po = sess.run([prob_dist, prob_theta, prob_phi, prob_omega],
                                        feed_dict = {msa : a3m, ncol : a3m.shape[1], nrow : a3m.shape[0], is_train : 0})
