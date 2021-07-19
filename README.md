@@ -16,7 +16,7 @@ Contact: Ivan Anishchenko, aivan@uw.edu
 
 ```
 # download package
-git clone https://github.com/gjoni/trRosetta
+git clone https://github.com/mooninrain/trRosetta
 cd trRosetta
 
 # download pre-trained network
