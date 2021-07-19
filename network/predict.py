@@ -30,8 +30,8 @@ print("network starts...")
 #
 # network
 #
-config = tf.ConfigProto(
-    gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
+config = tf.compat.v1.ConfigProto(
+    gpu_options = tf.compat.v1.GPUOptions(per_process_gpu_memory_fraction=0.9)
 )
 activation = tf.nn.elu
 conv1d = tf.layers.conv1d
@@ -39,10 +39,10 @@ conv2d = tf.layers.conv2d
 with tf.Graph().as_default():
 
     with tf.name_scope('input'):
-        ncol = tf.placeholder(dtype=tf.int32, shape=())
-        nrow = tf.placeholder(dtype=tf.int32, shape=())
-        msa = tf.placeholder(dtype=tf.uint8, shape=(None,None))
-        is_train = tf.placeholder(tf.bool, name='is_train')
+        ncol = tf.compat.v1.placeholder(dtype=tf.int32, shape=())
+        nrow = tf.compat.v1.placeholder(dtype=tf.int32, shape=())
+        msa = tf.compat.v1.placeholder(dtype=tf.uint8, shape=(None,None))
+        is_train = tf.compat.v1.placeholder(tf.bool, name='is_train')
 
     #
     # collect features
