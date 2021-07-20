@@ -25,7 +25,7 @@ a3m = parse_a3m(msa_file)
 
 contacts = {'pd':[], 'po':[], 'pt':[], 'pp':[]}
 
-print("network starts...")
+print("network starts...using GPU:",args.gpu)
 
 #
 # network
