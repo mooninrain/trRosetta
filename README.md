@@ -26,7 +26,12 @@ tar xf model2019_07.tar.bz2
 
 ## Usage
 ```
-python ./network/predict.py -m ./model2019_07 example/T1001.a3m example/T1001.npz
+python ./network/predict.py -m ./model2019_07 7 example/T1001.a3m example/T1001.npz example/T1001.npy
+
+```
+or
+```
+python ./network/predict_many.py -m ./model2019_07 7 example2/input example2/output example2/gt
 ```
 
 ## Links
