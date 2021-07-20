@@ -10,6 +10,7 @@ from arguments import get_args_many
 
 args = get_args_many()
 
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 MDIR         = args.MDIR
 
 n2d_layers   = 61
